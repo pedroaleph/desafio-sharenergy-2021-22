@@ -11,25 +11,27 @@
     display: flex;
     text-decoration: none;
 
-    a {
-        display: flex;
-        text-decoration: none;    
-    }
-
     h1 {
         font-weight: bold;
         font-size: 24px;
         line-height: 29px;
         text-transform: uppercase;
-        margin-right: 5px;
     }
 }
 
-.navbar-menu {
+.navbar-menu-mobile-btn {
+    display: none;
+}
+
+.navbar-menu-container {
+    width: 70%;
+}
+
+.navbar-menu-content {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    width: 70%;
+    width: 100%;
     height: 100%;
     align-items: center;
 
@@ -47,16 +49,79 @@
         width: 30%;
         display: flex;
         justify-content: flex-end;
-        margin-right: -10%;
+        margin-right: -8%;
     
         .navbar-btn {
-            width: 65%;
+            width: 70%;
+            display: flex;
+            justify-content: center;
             border-radius: 25px !important;
             color: #FFF !important;
+
+            box-shadow: none;
 
             &:hover {
                 background-color: #3E9696;
             }
         }
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-container {
+        flex-direction: column;
+    }
+    .navbar-title-container {
+        display: flex;
+        width: 100%;
+        height: 100%;
+        justify-content: space-between;
+    }
+    .navbar-menu-mobile-btn {
+        display: block;
+        background: none;
+        border: none;
+
+        svg {
+           width: 20px;
+           height: 21px;
+           color: #263238;
+        }
+
+    }
+    .navbar-menu-container {
+        display: none;
+    }
+
+    .navbar-menu-mobile-container {
+        background-color: #263238;
+        margin: 20px -20px;
+
+        .navbar-menu-content {
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 0;
+            margin: 0;
+            width: 100%;
+    
+            li, a {
+                width: 100%;
+                height: 45px;
+                display: flex;
+                align-items: center;
+                border-bottom: 1px solid #8F8F8F;
+            }
+    
+            a {
+                padding-left: 30px;
+    
+    
+                &:hover {
+                    color: #9E9E9E;
+                    background-color: rgba(255, 255, 255, 0.1);
+                }
+            }
+        }    
     }
 }
