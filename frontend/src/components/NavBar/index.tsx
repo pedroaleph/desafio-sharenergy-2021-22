@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { ReactComponent as OpenMenu } from 'assets/images/menu-icon.svg';
 import { ReactComponent as CloseMenu } from 'assets/images/close-icon.svg';
 import './styles.scss';
@@ -7,10 +7,12 @@ import './styles.scss';
 const NavBar = () => {
     const [isLogged,  setIsLogged] = useState(false);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
-    const [isMobileModeActive, setIsMobileModeActive] = useState(false);
+    const [isResponsiveModeActive, setIsResponsiveModeActive] = useState(false);
 
     window.addEventListener(
-        'resize',() => (window.innerWidth > 768) ? setIsMobileModeActive(false) : setIsMobileModeActive(true)
+        'resize', () => (window.innerWidth > 768)
+            ? setIsResponsiveModeActive(false)
+            : setIsResponsiveModeActive(true)
     );
 
     const handleCloseDrawer = () => {
@@ -30,7 +32,7 @@ const NavBar = () => {
                             desafio
                         </h1>
                         <h1 className='text-secondary'>
-                            shar
+                            Shar
                         </h1>
                         <h1 style={{ color: '#8C8863'}}>
                             e
@@ -47,22 +49,34 @@ const NavBar = () => {
                     { isDrawerOpen ? <CloseMenu /> : <OpenMenu /> }
                 </button>
             </div>
-            <div className={ (isMobileModeActive && isDrawerOpen) ? 'navbar-menu-mobile-container' : 'navbar-menu-container'}>
+            <div className={
+                    (isResponsiveModeActive && isDrawerOpen)
+                    ? 'navbar-menu-mobile-container'
+                    : 'navbar-menu-container'
+                }
+            >
                 <ul className='navbar-menu-content'>
                     <li>
-                        <NavLink to='/' onClick={handleCloseDrawer}>
+                        <Link to='/' onClick={handleCloseDrawer}>
                             gráficos
-                        </NavLink>
+                        </Link>
                     </li>
                     <li>
-                        <NavLink to='/' onClick={handleCloseDrawer}>
+                        <Link to='/' onClick={handleCloseDrawer}>
                             clientes
-                        </NavLink>
+                        </Link>
                     </li>
-                    <li className={ isMobileModeActive  ? '' : 'navbar-btn-container' }>
+                    <li className={
+                            isResponsiveModeActive
+                            ? '' : 'navbar-btn-container'
+                        }
+                    >
                         <Link
                             to='/'
-                            className={ isMobileModeActive  ? '' : 'btn btn-primary navbar-btn' }
+                            className={
+                                isResponsiveModeActive
+                                ? '' : 'btn btn-primary navbar-btn'
+                            }
                             onClick={() => {
                                 setIsLogged(!isLogged);
                                 handleCloseDrawer();
