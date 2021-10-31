@@ -9,6 +9,9 @@
 .plant-production-container {
     width: 60%;
     border-right: 1px solid #9E9E9E;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .estimates-container {
