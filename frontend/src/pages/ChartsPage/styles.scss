@@ -10,10 +10,35 @@
     width: 60%;
     border-right: 1px solid #9E9E9E;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
+    text-align: center;
 }
 
 .estimates-container {
     width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+@media (max-width: 768px) {
+    .charts-page-container {
+        margin: 20px 20px;
+        flex-direction: column;
+        height: 100%; 
+    }
+    .plant-production-container {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid #9E9E9E;
+    }
+
+    .estimates-container {
+        width: 100%;
+        margin-top: 20px;
+    }
 }
