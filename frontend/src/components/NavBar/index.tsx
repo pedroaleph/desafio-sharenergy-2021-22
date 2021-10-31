@@ -28,13 +28,13 @@ const NavBar = () => {
         <nav className='navbar-container'>
             <div className='navbar-title-container'>
                 <Link to='/' className='navbar-title'>
-                        <h1 style={{ color: '#9E9E9E', marginRight: 5 }}>
+                        <h1 className='text-gray me-2'>
                             desafio
                         </h1>
                         <h1 className='text-secondary'>
                             Shar
                         </h1>
-                        <h1 style={{ color: '#8C8863'}}>
+                        <h1 className='text-thirdy'>
                             e
                         </h1>
                         <h1 className='text-primary'>

@@ -1,0 +1,16 @@
+.charts-page-container {
+    margin: 20px 40px;
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    height: 80vh;
+}
+
+.plant-production-container {
+    width: 60%;
+    border-right: 1px solid #9E9E9E;
+}
+
+.estimates-container {
+    width: 40%;
+}
