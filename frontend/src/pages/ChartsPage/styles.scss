@@ -1,9 +1,14 @@
 .charts-page-container {
-    margin: 20px 40px;
     display: flex;
     flex: 1;
     flex-direction: row;
     height: 80vh;
+
+    h4 {
+        margin: 20px 40px;
+        text-align: center;
+        font-weight: bold;
+    }
 }
 
 .plant-production-container {
@@ -13,7 +18,6 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    text-align: center;
 }
 
 .estimates-container {
@@ -27,12 +31,12 @@
 
 @media (max-width: 768px) {
     .charts-page-container {
-        margin: 20px 20px;
         flex-direction: column;
-        height: 100%; 
+        height: 100%;
     }
     .plant-production-container {
         width: 100%;
+        height: 60vh;
         border: none;
         border-bottom: 1px solid #9E9E9E;
     }

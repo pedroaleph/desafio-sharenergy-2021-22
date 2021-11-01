@@ -1,6 +1,4 @@
-export type PlantData = {
-    content: PlantDataContent[];
-}
+export type PlantData = PlantDataContent[];
 
 export type PlantDataContent = {
     tempo_h: number,
@@ -45,6 +43,6 @@ export const PlantVariables = [
         name: 'Temperatura',
         tag: 'temperatura_C',
         meansure: 'graus Celsius',
-        unit :'C°'
+        unit :'°C'
     },
 ]

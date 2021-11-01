@@ -1,5 +1,22 @@
 .chart-input-radio-container {
     display: flex;
+    flex-direction: row;
     width: 100%;
     justify-content: space-around;
+    padding: 10px;
+    margin-bottom: 15px;
+
+    .form-check-input:checked {
+        background-color: #42A3A3;
+        border: none;
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .chart-input-radio-container {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 50%;
+    }
 }

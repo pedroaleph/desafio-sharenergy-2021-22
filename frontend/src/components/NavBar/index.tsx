@@ -9,23 +9,24 @@ const NavBar = () => {
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [isResponsiveModeActive, setIsResponsiveModeActive] = useState(false);
 
-    window.addEventListener(
-        'resize', () => (window.innerWidth > 768)
-            ? setIsResponsiveModeActive(false)
-            : setIsResponsiveModeActive(true)
-    );
-
     const handleCloseDrawer = () => {
         setIsDrawerOpen(false);
     }
 
     useEffect(() => {
-
+        window.addEventListener(
+            'resize', () => (window.innerWidth > 768)
+                ? setIsResponsiveModeActive(false)
+                : setIsResponsiveModeActive(true)
+        );
     }, [])
 
 
     return (
-        <nav className='navbar-container'>
+        <nav
+            className='navbar-container'
+            // style={ (isDrawerOpen && isResponsiveModeActive ) ? { marginBottom: 150 } : {} }
+        >
             <div className='navbar-title-container'>
                 <Link to='/' className='navbar-title'>
                         <h1 className='text-gray me-2'>
@@ -44,7 +45,10 @@ const NavBar = () => {
                 <button
                     className='navbar-menu-mobile-btn'
                     type='button'
-                    onClick={() => setIsDrawerOpen(!isDrawerOpen)}
+                    onClick={() => {
+                        setIsResponsiveModeActive(true);
+                        setIsDrawerOpen(!isDrawerOpen)
+                    }}
                 >
                     { isDrawerOpen ? <CloseMenu /> : <OpenMenu /> }
                 </button>
@@ -56,13 +60,18 @@ const NavBar = () => {
                 }
             >
                 <ul className='navbar-menu-content'>
-                    <li>
+                <li>
                         <Link to='/' onClick={handleCloseDrawer}>
+                            início
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to='/charts' onClick={handleCloseDrawer}>
                             gráficos
                         </Link>
                     </li>
                     <li>
-                        <Link to='/' onClick={handleCloseDrawer}>
+                        <Link to='/clients' onClick={handleCloseDrawer}>
                             clientes
                         </Link>
                     </li>

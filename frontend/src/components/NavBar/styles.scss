@@ -69,6 +69,7 @@
 
 @media (max-width: 768px) {
     .navbar-container {
+        padding: 20px 15px;
         flex-direction: column;
     }
     .navbar-title-container {
@@ -96,6 +97,7 @@
     .navbar-menu-mobile-container {
         background-color: #263238;
         margin: 20px -20px;
+        z-index: 1;
 
         .navbar-menu-content {
             flex-direction: column;

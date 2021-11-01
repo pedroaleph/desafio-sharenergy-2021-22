@@ -1,5 +1,4 @@
-import { PlantDataContent, PlantVariablesType } from 'types/Plant';
-import './styles.scss';
+import { PlantData, PlantVariablesType } from 'types/Plant';
 import {
     LineChart,
     Line,
@@ -9,32 +8,28 @@ import {
     Tooltip,
     ResponsiveContainer,
   } from "recharts";
-
-const NumberFormatter = (value: number) => {
-    return new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2 }).format(value);
-}
-
-const timeFormatter = (time: number) => {
-    const hour = Math.trunc(time);
-    const min = Math.fround((Math.abs(time) - hour) * 60);
-
-    return 'Tempo : ' + hour + 'h e ' +  min + 'min';
-}
+import { NumberFormatter, TimeFormatter } from 'types/Formatters';
 
 type Props = {
-    content : PlantDataContent[],
+    content : PlantData,
     variable: PlantVariablesType
 }
 
 const LineChartComponent = ({ content, variable }: Props) => {
-
     const { name, tag , unit } = variable;
+
+    const ToolTipFormatterHandler = (value: number, name: string) => (
+        [`${NumberFormatter(value)} ${unit}` , name]
+    );
+
+    const ToolTipLabelFormatterHandler = (label: number) =>  {
+        const { hour, min } = TimeFormatter(label);
+        return 'Tempo : ' + hour + 'h e ' +  min + 'min';
+    }
 
     return (
         <ResponsiveContainer width={"95%"} height={"55%"}>
              <LineChart
-                width={700}
-                height={300}
                 margin={{
                 top: 5,
                 right: 30,
@@ -43,11 +38,22 @@ const LineChartComponent = ({ content, variable }: Props) => {
             }}
             >
                 <CartesianGrid strokeDasharray="3 3" />
-                <XAxis type="number" dataKey="tempo_h" name={name} unit="h" domain={[0, 24]} tickCount={9} />
-                <YAxis type="number" dataKey={tag} name={name} unit={unit} />
+                <XAxis
+                    type="number"
+                    dataKey="tempo_h"
+                    name={name} unit="h"
+                    domain={[0, 24]} 
+                    tickCount={9}
+                />
+                <YAxis
+                    type="number"
+                    dataKey={tag} 
+                    name={name} 
+                    unit={unit}
+                />
                 <Tooltip
-                    formatter={(value: number , name :string) => [`${NumberFormatter(value)} ${unit}` , name ]}
-                    labelFormatter={(label) => timeFormatter(label)}
+                    formatter={ToolTipFormatterHandler}
+                    labelFormatter={ToolTipLabelFormatterHandler}
                 />
                 <Line
                     type="monotone"

@@ -1,0 +1,47 @@
+.home-page-container {
+    padding: 40px;
+    height: 70vh;
+
+    p {
+        margin: 20px;
+        color: #8F8F8F;
+    }
+
+    a { 
+        text-decoration: none;
+    }
+}
+
+.home-title {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.home-subtitle {
+
+}
+
+.home-description {
+    span {
+        padding: 30px;
+        margin-bottom: 40px;
+    }
+}
+.home-developer {
+    
+}
+
+@media(max-width: 768px) {
+    .home-page-container {
+        padding: 20px;  
+        
+        p {
+            text-align: justify;
+            text-indent: 40px;
+        }
+    }
+
+    .home-title {
+        text-align: center;
+    }
+}
