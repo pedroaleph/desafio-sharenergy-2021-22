@@ -2,5 +2,18 @@
     height: 65px;
     display: flex;
     align-items: center;
+    justify-content: center;
     text-align: center;
+    margin: 10px;
+    max-width: 100%;
+    
+    h5 {
+        text-transform: uppercase;
+        color: #FFF;
+        font-weight: bold;
+    }
+
+    &:hover {
+        background-color: #3E9696 !important;
+    }
 }

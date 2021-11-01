@@ -18,18 +18,18 @@ const HomePage = () => {
                         </a> para o processo seletivo da <strong>SHARENERGY 2021/22</strong>
                 </p>
                 <p className='home-description'>
-                    O aplicativo consisti de forma simplificada em: <br />
+                    A aplicação consisti de forma simplificada em: <br />
                     <br />
                         <span>
-                            Visualização de dados de uma usina fotovoltaica (gráfico)
+                            - Visualização de dados de uma usina fotovoltaica (gráfico)
                         </span>
                     <br />
                         <span>
-                            Visualização de dados de retorno de financeiro dos clientes (gráfico)
+                            - Visualização de dados de retorno de financeiro dos clientes (gráfico)
                         </span>
                     <br />
                         <span>
-                            Gerenciamento de clientes (CRUD, necessário login para editar)
+                            - Gerenciamento de clientes (CRUD, necessário login para editar)
                         </span>
                     <br />
                 </p>
@@ -38,7 +38,7 @@ const HomePage = () => {
                     <ButtonIcon  path='/clients' text='acessar página de clientes' />
                 </div>
                 <p className='home-developer'>
-                    Desenvolvido por <a
+                    App desenvolvido por <a
                             href="https://github.com/pedroaleph"
                             target="_blank"
                             rel="noreferrer"

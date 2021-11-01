@@ -13,9 +13,9 @@ const ButtonIcon = ({ path, text }: Props) => {
                 type="button"
                 className="btn btn-primary button-icon-container"
             >
-                <p>
+                <h5>
                     {text}
-                </p>
+                </h5>
             </button>
         </Link>
     );
