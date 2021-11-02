@@ -1,23 +1,22 @@
-import { Link } from 'react-router-dom';
 import './styles.scss';
 
 type Props = {
-    path: string
     text: string
+    onClickButton: () => void
 }
 
-const ButtonIcon = ({ path, text }: Props) => {
+const ButtonIcon = ({ text, onClickButton }: Props) => {
     return (
-        <Link to={path}>
-            <button
-                type="button"
-                className="btn btn-primary button-icon-container"
-            >
-                <h5>
-                    {text}
-                </h5>
-            </button>
-        </Link>
+        
+        <button
+            type="button"
+            className="btn btn-primary button-icon-container"
+            onClick={onClickButton}
+        >
+            <h5>
+                {text}
+            </h5>
+        </button>
     );
 }
 

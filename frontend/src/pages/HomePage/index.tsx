@@ -1,7 +1,10 @@
 import ButtonIcon from 'components/ButtonIcon';
+import { useHistory } from 'react-router-dom';
 import './styles.scss';
 
 const HomePage = () => {
+    const history = useHistory();
+
     return (
         <div className='card-base'>
             <div className='home-page-container'>
@@ -9,7 +12,7 @@ const HomePage = () => {
                     desafio sharenergy
                 </h1>
                 <p className='home-subtitle'>
-                    Esta aplicação se destina o <a
+                    Esta aplicação se destina ao <a
                             href="https://github.com/SHARENERGY-OFICIAL/desafio-sharenergy-2021-22.git"
                             target="_blank"
                             rel="noreferrer"
@@ -18,14 +21,14 @@ const HomePage = () => {
                         </a> para o processo seletivo da <strong>SHARENERGY 2021/22</strong>
                 </p>
                 <p className='home-description'>
-                    A aplicação consisti de forma simplificada em: <br />
+                    A aplicação consiste de forma simplificada na: <br />
                     <br />
                         <span>
                             - Visualização de dados de uma usina fotovoltaica (gráfico)
                         </span>
                     <br />
                         <span>
-                            - Visualização de dados de retorno de financeiro dos clientes (gráfico)
+                            - Visualização de dados de retorno financeiro dos clientes (gráfico)
                         </span>
                     <br />
                         <span>
@@ -34,8 +37,14 @@ const HomePage = () => {
                     <br />
                 </p>
                 <div className='home-btns-container'>
-                    <ButtonIcon path='/charts' text='acessar página de gráficos' />
-                    <ButtonIcon  path='/clients' text='acessar página de clientes' />
+                    <ButtonIcon
+                        text='acessar página de gráficos'
+                        onClickButton={() => history.push('/charts')}
+                    />
+                    <ButtonIcon
+                        text='acessar página de clientes'
+                        onClickButton={() => history.push('/clients')}
+                    />
                 </div>
                 <p className='home-developer'>
                     App desenvolvido por <a

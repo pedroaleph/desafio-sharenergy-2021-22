@@ -6,11 +6,13 @@
     text-align: center;
     margin: 10px;
     max-width: 100%;
+    padding: 12px !important;
     
     h5 {
         text-transform: uppercase;
         color: #FFF;
         font-weight: bold;
+        font-size: 1em;
     }
 
     &:hover {
