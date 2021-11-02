@@ -24,6 +24,7 @@ const getClientData = (client: ClientData, deltaE: number, renevue: number) => {
     )
 }
 
+// adaptado de https://recharts.org/en-US/examples/CustomActiveShapePieChart
 const renderActiveShape = (props: any) => {
     const {
       cx,
