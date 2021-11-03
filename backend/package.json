@@ -2,16 +2,18 @@
   "name": "backend",
   "version": "1.0.0",
   "description": "desafio SHARENERGY backend",
-  "main": "./src/index.ts",
+  "main": "./dist/index.ts",
   "repository": "https://github.com/pedroaleph/desafio-sharenergy-2021-22.git",
   "author": "Pedro Aleph Gomes de Souza Vasconcelos",
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "mongoose": "^6.0.12"
   },
   "devDependencies": {
+    "@types/cors": "^2.8.12",
     "@types/express": "^4.17.13",
     "@types/node": "^16.11.6",
     "nodemon": "^2.0.14",
