@@ -9,7 +9,7 @@ const userDTO = (user: UserType) => (
     }
 );
 
-exports.findAll = async () => {
+export const findAll = async () => {
     try {
         const users = await UserModel.find();
 
@@ -21,7 +21,7 @@ exports.findAll = async () => {
     }
 }
 
-exports.createOneUser = async (user: UserType) => {
+export const createOneUser = async (user: UserType) => {
     try {
         const data = await UserModel.create(user);
 

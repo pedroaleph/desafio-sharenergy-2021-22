@@ -1,14 +1,16 @@
 import { Router } from "express";
+import { auth } from "./Middlewares/Auth";
 
-const {
+import {
     findPagedClients,
     findClientById, 
     createClient, 
     updateClient, 
     deleteClient 
-} = require('./controllers/ClientController');
+} from './controllers/ClientController';
 
-const { findAllUsers, createUser } = require('./controllers/UserController');
+import { findAllUsers, createUser } from './controllers/UserController';
+import { authenticateUser } from './controllers/AuthController';
 
 const Routes = Router();
 
@@ -31,13 +33,17 @@ Routes.get('/', (req, res) => {
 
 // clients
 Routes.get('/clients', findPagedClients);
-Routes.get('/clients/:id', findClientById);
-Routes.post('/clients', createClient);
-Routes.put('/clients/:id', updateClient);
-Routes.delete('/clients/:id', deleteClient);
+Routes.get('/clients/:id', auth, findClientById);
+Routes.post('/clients', auth, createClient);
+Routes.put('/clients/:id', auth, updateClient);
+Routes.delete('/clients/:id', auth, deleteClient);
 
 // users
-Routes.get('/users', findAllUsers);
+Routes.get('/users', auth, findAllUsers);
 Routes.post('/users', createUser);
+
+// auth
+Routes.post('/auth/login', authenticateUser);
+
 
 export default Routes;

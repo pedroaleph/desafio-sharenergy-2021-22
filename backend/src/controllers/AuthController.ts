@@ -1,15 +1,15 @@
 import { Request, Response } from 'express';
-const { authenticate } = require('../services/AuthService');
+import { authenticate } from '../services/AuthService';
 
-exports.authenticate = async (req: Request, res: Response) => {
+export const authenticateUser = async (req: Request, res: Response) => {
     const email = req.body.email;
     const password = req.body.password;
 
     try {
         const data = await authenticate(email, password);
-        res.send(data);        
+        res.send({ auth: true, ...data });        
     } catch (error:any) {
-        res.status(401).send({ message: error.message });
+        res.status(401).send({ auth: false ,message: error.message });
     }
 }
 

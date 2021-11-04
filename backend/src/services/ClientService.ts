@@ -11,7 +11,7 @@ const clientDTO = (client: ClientType) => (
     }
 )
 
-exports.createMany = async (clients: ClientType[]) => {
+export const createMany = async (clients: ClientType[]) => {
     try {        
         const data = await clients.reduce((prom, client) => (
                 prom.then(async result => {
@@ -26,7 +26,7 @@ exports.createMany = async (clients: ClientType[]) => {
     }
 };
 
-exports.findPaged = async (name: string, size: number, page: number) => {
+export const findPaged = async (name: string, size: number, page: number) => {
     try {
         const search = { nomeCliente: { $regex: name, $options:'i' } };
 
@@ -57,9 +57,12 @@ exports.findPaged = async (name: string, size: number, page: number) => {
     }
 }
 
-exports.findById = async (id: number) => {
+export const findById = async (id: number) => {
     try {
         const data = await ClientModel.findById(id);
+
+        if(!data)
+            throw new Error('Invalid id provided!');
 
         return data;
     } catch (error) {
@@ -67,7 +70,7 @@ exports.findById = async (id: number) => {
     }
 }
 
-exports.create = async (client: ClientType) => {
+export const create = async (client: ClientType) => {
     try {
         const data = await ClientModel.create(client);
 
@@ -77,9 +80,12 @@ exports.create = async (client: ClientType) => {
     }
 }
 
-exports.update = async (id: Number ,client: ClientType) => {
+export const update = async (id: Number ,client: ClientType) => {
     try {
         const data = await ClientModel.findByIdAndUpdate(id, client, { new: true });
+
+        if(!data)
+            throw new Error('Invalid id provided!');
 
         return data;
     } catch (error) {
@@ -87,9 +93,12 @@ exports.update = async (id: Number ,client: ClientType) => {
     }
 }
 
-exports.deleteOne = async (id: Number) => {
+export const deleteOne = async (id: Number) => {
     try {
         const client:ClientType  = await ClientModel.findById(id);
+
+        if(!client)
+            throw new Error('Invalid id provided!');
 
         if (client.usinas?.length !== 0)
             throw new Error("Integrity Violation!");

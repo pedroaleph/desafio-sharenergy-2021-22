@@ -14,18 +14,21 @@ const userDTO = (user: UserType) => (
     }
 );
 
-exports.authenticate = async (email: string, password: string) => {
+export const authenticate = async (email: string, password: string) => {
     try {
 
-        const user:typeof UserModel = await UserModel.findOne({ email });
+        const user = await UserModel.findOne({ email });
 
-        await user.isCorretPassword(password);
+        if(!user)
+            throw new Error('Invalid email!');
+
+        await user.isCorrectPassword(password);
 
         const userData = userDTO(user);
 
         const access_token = jwt.sign(userData, JWT_SECRET, { expiresIn });
         
-        return { access_token, expiresIn, user: userData };
+        return { access_token, user: userData };
         
     } catch (error) {
         throw error;

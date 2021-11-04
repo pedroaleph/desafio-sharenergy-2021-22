@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
-const { 
+import { 
     findPaged, 
     findById, 
     create, 
     update, 
     deleteOne
- } = require('../services/ClientService');
+ } from '../services/ClientService';
 
-exports.findPagedClients = async (req: Request, res: Response) => {
+export const findPagedClients = async (req: Request, res: Response) => {
     const strName = req.query.name as string;
     const intSize = Number(req.query.size);
     const intPage = Number(req.query.page);
@@ -21,23 +21,23 @@ exports.findPagedClients = async (req: Request, res: Response) => {
 
         res.send(data);        
     } catch (error:any) {
-        res.status(400).send({ message: error.message });
+        res.status(400).send({ success: false, message: error.message });
     }
 }
 
-exports.findClientById = async (req: Request, res: Response) => {
-    const id = req.params.id;
+export const findClientById = async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
 
     try {
         const data = await findById(id);
 
         res.send(data);        
     } catch (error:any) {
-        res.status(400).send({ message: error.message });
+        res.status(400).send({ success: false, message: error.message });
     }
 }
 
-exports.createClient = async (req: Request, res: Response) => {
+export const createClient = async (req: Request, res: Response) => {
     const body = req.body;
 
     try {
@@ -45,12 +45,12 @@ exports.createClient = async (req: Request, res: Response) => {
 
         res.status(201).send(data);        
     } catch (error:any) {
-        res.status(400).send({ message: error.message });
+        res.status(400).send({ success: false, message: error.message });
     }
 }
 
-exports.updateClient = async (req: Request, res: Response) => {
-    const id = req.params.id;
+export const updateClient = async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
     const body = req.body;
 
     try {
@@ -58,18 +58,18 @@ exports.updateClient = async (req: Request, res: Response) => {
 
         res.status(202).send(data);        
     } catch (error:any) {
-        res.status(400).send({ message: error.message });
+        res.status(400).send({ success: false, message: error.message });
     }
 }
 
-exports.deleteClient = async (req: Request, res: Response) => {
-    const id = req.params.id;
+export const deleteClient = async (req: Request, res: Response) => {
+    const id = Number(req.params.id);
 
     try {
         await deleteOne(id);
 
         res.status(204).send();        
     } catch (error:any) {
-        res.status(400).send({ message: error.message });
+        res.status(400).send({ success: false, message: error.message });
     }
 }

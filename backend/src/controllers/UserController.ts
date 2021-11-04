@@ -1,17 +1,17 @@
 import { Request, Response } from 'express';
-const { findAll ,createOneUser } = require('../services/UserService');
+import { findAll ,createOneUser } from '../services/UserService';
 
-exports.findAllUsers = async (req: Request, res: Response) => {
+export const findAllUsers = async (req: Request, res: Response) => {
 
     try {
         const data = await findAll();
         res.send(data);        
     } catch (error:any) {
-        res.status(400).send({ message: error.message });
+        res.status(400).send({ success: false, message: error.message });
     }
 }
 
-exports.createUser = async (req: Request, res: Response) => {
+export const createUser = async (req: Request, res: Response) => {
     const body = req.body;
 
     try {
@@ -19,6 +19,6 @@ exports.createUser = async (req: Request, res: Response) => {
 
         res.status(201).send(data);        
     } catch (error:any) {
-        res.status(400).send({ message: error.message });
+        res.status(400).send({ success: false, message: error.message });
     }
 }
