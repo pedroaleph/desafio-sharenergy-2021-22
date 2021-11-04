@@ -67,7 +67,7 @@ exports.update = async (id: Number ,client: ClientType) => {
     }
 }
 
-exports.delete = async (id: Number) => {
+exports.deleteOne = async (id: Number) => {
     try {
         const client:ClientType  = await ClientModel.findById(id);
 
