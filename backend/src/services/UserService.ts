@@ -1,5 +1,5 @@
-import { UserType } from "models/user";
-const UserModel = require('../models/user');
+import { UserType } from "models/User";
+const UserModel = require('../models/User');
 
 const userDTO = (user: UserType) => (
     {

@@ -51,7 +51,7 @@ UserSchema.pre("save", async function (next) {
 //check hashed password
 UserSchema.methods.isCorrectPassword = async function (password) {
     const same = await bcrypt.compare(password, this.password);
-    if (!same) throw new Error("Incorrect password!");
+    if (!same) throw new Error("Invalid password!");
 };
   
 
