@@ -1,5 +1,5 @@
-import { ClientType } from "models/clients";
-const ClientModel = require('../models/clients');
+import { ClientType } from "models/client";
+const ClientModel = require('../models/client');
 
 const clientDTO = (client: ClientType) => (
     {
