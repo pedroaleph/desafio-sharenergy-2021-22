@@ -48,7 +48,6 @@ exports.findById = async (id: number) => {
 
 exports.create = async (client: ClientType) => {
     try {
-        client.numeroCliente = client._id;
         const data = await ClientModel.create(client);
 
         return data;
@@ -71,9 +70,9 @@ exports.deleteOne = async (id: Number) => {
     try {
         const client:ClientType  = await ClientModel.findById(id);
 
-        if (client.usinas)
+        if (client.usinas?.length !== 0)
             throw new Error("Integrity Violation!");
-
+        
         await ClientModel.deleteOne({ _id: id });
 
         return true;

@@ -1,5 +1,11 @@
 import { Request, Response } from 'express';
-const { findAll, findById, create, update, deleteOne } = require('../services/ClientService');
+const { 
+    findAll, 
+    findById, 
+    create, 
+    update, 
+    deleteOne
+ } = require('../services/ClientService');
 
 exports.findAllClients = async (req: Request, res: Response) => {
     try {
@@ -53,7 +59,7 @@ exports.deleteClient = async (req: Request, res: Response) => {
 
     try {
         await deleteOne(id);
-        
+
         res.status(204).send();        
     } catch (error:any) {
         res.status(400).send({ message: error.message });

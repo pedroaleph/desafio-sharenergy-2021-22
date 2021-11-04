@@ -1,6 +1,12 @@
 import { Router } from "express";
 
-const { findAllClients } = require('./controllers/ClientController');
+const {
+    findAllClients,
+    findClientById, 
+    createClient, 
+    updateClient, 
+    deleteClient 
+} = require('./controllers/ClientController');
 
 const Routes = Router();
 
@@ -22,7 +28,10 @@ Routes.get('/', (req, res) => {
 });
 
 // clients
-
 Routes.get('/clients', findAllClients);
+Routes.get('/clients/:id', findClientById);
+Routes.post('/clients', createClient);
+Routes.put('/clients/:id', updateClient);
+Routes.delete('/clients/:id', deleteClient);
 
 export default Routes;
