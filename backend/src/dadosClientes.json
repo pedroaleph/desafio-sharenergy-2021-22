@@ -2,6 +2,7 @@
     {
         "numeroCliente": 1,
         "nomeCliente": "Ana Silva",
+        "emailCliente": "ana@sharenergy.com",
         "usinas":
         [
             {
@@ -13,6 +14,7 @@
     {
         "numeroCliente": 2,
         "nomeCliente": "João Santos",
+        "emailCliente": "joao@sharenergy.com",
         "usinas":
         [
             {
@@ -24,6 +26,7 @@
     {
         "numeroCliente": 3,
         "nomeCliente": "Maria Coelho",
+        "emailCliente": "maria@sharenergy.com",
         "usinas":
         [
             {

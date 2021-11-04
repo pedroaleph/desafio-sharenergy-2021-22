@@ -2,34 +2,32 @@ import mongoonse, { model, Schema } from "mongoose";
 
 const AutoIncrement = require('mongoose-sequence')(mongoonse);
 
-type client = {
+export type ClientType = {
+    _id: number,
     numeroCliente: number,
     nomeCliente: string,
-    emailCliente?: string,
+    emailCliente: string,
     imagemCliente?: string,
-    usinas?: powerPlant[]
+    usinas?: PowerPlant[]
 }
 
-type powerPlant = {
+type PowerPlant = {
     usinaId: number,
     percentualDeParticipacao: number
 }
 
-const ClientSchema = new Schema<client>({
+const ClientSchema = new Schema<ClientType>({
+    _id: Number,
     numeroCliente: Number,
     nomeCliente: { type: String, required: true },
-    emailCliente: String,
+    emailCliente: { type: String, unique: true, required: true},
     imagemCliente: String,
-    usinas: [
-        {
-            usinaId: Number,
-            percentualDeParticipacao: Number
-        }
-    ]
-}, { _id: false, timestamps: true });
+    usinas: []
+}, { timestamps: true });
 
-ClientSchema.plugin(AutoIncrement, { id: "client_id_counter", inc_field: "numeroCliente" });
+ClientSchema.index({ numeroCliente: 1 }, { unique: true });
+ClientSchema.plugin(AutoIncrement, { id: "client_id_counter", inc_field: "_id" });
 
-const ClientModel = model<client>('Clients', ClientSchema);
+module.exports = model<ClientType>('Clients', ClientSchema);
 
-export default ClientModel;
+

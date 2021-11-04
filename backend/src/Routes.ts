@@ -1,5 +1,7 @@
 import { Router } from "express";
 
+const { findAllClients } = require('./controllers/ClientController');
+
 const Routes = Router();
 
 // Routes.use((req, res, next) => {
@@ -18,5 +20,9 @@ Routes.get('/', (req, res) => {
         res.json({ success: false });
     }
 });
+
+// clients
+
+Routes.get('/clients', findAllClients);
 
 export default Routes;
