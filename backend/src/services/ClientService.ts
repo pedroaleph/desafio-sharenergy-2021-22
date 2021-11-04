@@ -1,15 +1,15 @@
 import { ClientType } from "models/clients";
 const ClientModel = require('../models/clients');
 
-// const clientDTO = (client: ClientType) => (
-//     {
-//         numeroCliente: client.numeroCliente,
-//         nomeCliente: client.nomeCliente,
-//         emailCliente: client.emailCliente,
-//         imagemCliente: client.imagemCliente,
-//         usinas: client.usinas
-//     }
-// )
+const clientDTO = (client: ClientType) => (
+    {
+        _id: client._id,
+        numeroCliente: client.numeroCliente,
+        nomeCliente: client.nomeCliente,
+        emailCliente: client.emailCliente,
+        imagemCliente: client.imagemCliente,
+    }
+)
 
 exports.createMany = async (clients: ClientType[]) => {
     try {        
@@ -26,11 +26,32 @@ exports.createMany = async (clients: ClientType[]) => {
     }
 };
 
-exports.findAll = async () => {
+exports.findPaged = async (name: string, size: number, page: number) => {
     try {
-        const data = await ClientModel.find();
+        const search = { nomeCliente: { $regex: name, $options:'i' } };
 
-        return data;
+        const total = (name !== '')
+            ? await ClientModel.countDocuments(search)
+            : await ClientModel.estimatedDocumentCount();
+    
+        const totalPages = Math.ceil((size === 0) ? 1 : total / size);
+    
+        const skip = page * size;
+
+        
+        const data = await ClientModel.find(search).limit(size).skip(skip);
+
+        const dto = data.map(clientDTO);
+
+        const dataPaged = {
+            content: dto,
+            size: size,
+            page: page,
+            totalPages: totalPages,
+            totalElements: total
+        }
+
+        return dataPaged;
     } catch (error) {
         throw error;
     }

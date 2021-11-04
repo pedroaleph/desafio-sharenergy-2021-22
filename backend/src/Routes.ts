@@ -1,7 +1,7 @@
 import { Router } from "express";
 
 const {
-    findAllClients,
+    findPagedClients,
     findClientById, 
     createClient, 
     updateClient, 
@@ -28,7 +28,7 @@ Routes.get('/', (req, res) => {
 });
 
 // clients
-Routes.get('/clients', findAllClients);
+Routes.get('/clients', findPagedClients);
 Routes.get('/clients/:id', findClientById);
 Routes.post('/clients', createClient);
 Routes.put('/clients/:id', updateClient);

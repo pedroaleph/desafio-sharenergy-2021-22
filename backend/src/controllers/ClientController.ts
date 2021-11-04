@@ -1,15 +1,23 @@
 import { Request, Response } from 'express';
 const { 
-    findAll, 
+    findPaged, 
     findById, 
     create, 
     update, 
     deleteOne
  } = require('../services/ClientService');
 
-exports.findAllClients = async (req: Request, res: Response) => {
+exports.findPagedClients = async (req: Request, res: Response) => {
+    const strName = req.query.name as string;
+    const intSize = Number(req.query.size);
+    const intPage = Number(req.query.page);
+
     try {
-        const data = await findAll();
+        const name = strName ? strName.replace(/\s+/g, ' ').trim() : '';
+        const size = (isNaN(intSize)) ? 8 : intSize;
+        const page =  (isNaN(intPage)) ? 0 : intPage;
+
+        const data = await findPaged(name, size, page);
 
         res.send(data);        
     } catch (error:any) {
