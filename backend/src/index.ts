@@ -32,7 +32,7 @@ db.once("open", async (callback) => {
 
   //console.log(db.get('clients'));  
   if (db.get('clients') === undefined ){
-    const clients = require('./dadosClientes.json');
+    const clients = require('./resources/dadosClientes.json');
     await createMany(clients);
   }
   console.log(`Connected to ${MONGODB_URL} `);
