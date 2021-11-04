@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import Routes from "./Routes";
 
 const { createMany } = require('./services/ClientService');
+const { createOneUser } = require('./services/UserService');
 
 const PORT = process.env.PORT || 5000;
 const APP_ENVIRONMENT = process.env.APP_ENVIRONMENT ?? 'dev';
@@ -32,6 +33,9 @@ db.once("open", async (callback) => {
 
   //console.log(db.get('clients'));  
   if (db.get('clients') === undefined ){
+    const user = require('./resources/user.json');
+    await createOneUser(user);
+
     const clients = require('./resources/dadosClientes.json');
     await createMany(clients);
   }

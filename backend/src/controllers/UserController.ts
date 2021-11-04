@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-const { findAll ,create } = require('../services/UserService');
+const { findAll ,createOneUser } = require('../services/UserService');
 
 exports.findAllUsers = async (req: Request, res: Response) => {
 
@@ -15,7 +15,7 @@ exports.createUser = async (req: Request, res: Response) => {
     const body = req.body;
 
     try {
-        const data = await create(body);
+        const data = await createOneUser(body);
 
         res.status(201).send(data);        
     } catch (error:any) {
