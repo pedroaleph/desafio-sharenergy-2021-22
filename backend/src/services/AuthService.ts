@@ -4,7 +4,7 @@ import jwt from 'jsonwebtoken';
 const UserModel = require('../models/User');
 
 const JWT_SECRET = process.env.JWT_SECRET ?? 'XXX';
-const expiresIn =  process.env.TOKEN_EXPIRATION ?? 14400;
+const expiresIn =  process.env.TOKEN_EXPIRATION ?? 14400; // 4 horas
 
 const userDTO = (user: UserType) => (
     {
