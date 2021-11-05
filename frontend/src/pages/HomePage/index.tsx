@@ -1,9 +1,8 @@
 import ButtonIcon from 'components/ButtonIcon';
-import { useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './styles.scss';
 
 const HomePage = () => {
-    const history = useHistory();
 
     return (
         <div className='card-base'>
@@ -32,19 +31,21 @@ const HomePage = () => {
                         </span>
                     <br />
                         <span>
-                            - Gerenciamento de clientes (CRUD, necessário login para editar)
+                            - Gerenciamento de clientes (CRUD, necessário autenticação)
                         </span>
                     <br />
                 </p>
                 <div className='home-btns-container'>
-                    <ButtonIcon
-                        text='acessar página de gráficos'
-                        onClickButton={() => history.push('/charts')}
-                    />
-                    <ButtonIcon
-                        text='acessar página de clientes'
-                        onClickButton={() => history.push('/clients')}
-                    />
+                    <Link to='/charts'>
+                        <ButtonIcon
+                            text='acessar página de gráficos'
+                        />
+                    </Link>
+                    <Link to='/clients'>
+                        <ButtonIcon
+                            text='acessar página de clientes'
+                        />
+                    </Link>
                 </div>
                 <p className='home-developer'>
                     App desenvolvido por <a

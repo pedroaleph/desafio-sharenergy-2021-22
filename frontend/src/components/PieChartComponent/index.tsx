@@ -45,10 +45,10 @@ const renderActiveShape = (props: any) => {
         <text x={cx} y={cy} dy={-30} textAnchor="middle" fill={fill}>
           {payload.name}
         </text>
-        <text x={cx} y={cy} dy={-10} textAnchor="middle" fill={gray}>
+        <text x={cx} y={cy} dy={-10} textAnchor="middle">
           {`${NumberFormatter(payload.deltaE)} kWh`}
         </text>
-        <text x={cx} y={cy} dy={10} textAnchor="middle" fill={gray}>
+        <text x={cx} y={cy} dy={10} textAnchor="middle">
           {`R$ ${NumberFormatter(payload.income)}`}
         </text>
         <text x={cx} y={cy} dy={30} textAnchor="middle" fill={gray}>

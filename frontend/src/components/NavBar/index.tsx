@@ -1,13 +1,15 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { ReactComponent as OpenMenu } from 'assets/images/menu-icon.svg';
 import { ReactComponent as CloseMenu } from 'assets/images/close-icon.svg';
 import './styles.scss';
+import { getSessionData, logout } from 'utils/auth';
 
 const NavBar = () => {
     const [isLogged,  setIsLogged] = useState(false);
     const [isDrawerOpen, setIsDrawerOpen] = useState(false);
     const [isResponsiveModeActive, setIsResponsiveModeActive] = useState(false);
+    const location = useLocation();
 
     const handleCloseDrawer = () => {
         setIsDrawerOpen(false);
@@ -19,7 +21,9 @@ const NavBar = () => {
                 ? setIsResponsiveModeActive(false)
                 : setIsResponsiveModeActive(true)
         );
-    }, [])
+
+        setIsLogged(Boolean(getSessionData()));
+    }, [location]);
 
 
     return (
@@ -81,13 +85,13 @@ const NavBar = () => {
                         }
                     >
                         <Link
-                            to='/'
+                            to='/auth/login'
                             className={
                                 isResponsiveModeActive
                                 ? '' : 'btn btn-primary navbar-btn'
                             }
                             onClick={() => {
-                                setIsLogged(!isLogged);
+                                if(isLogged) logout();
                                 handleCloseDrawer();
                             }}
                         >

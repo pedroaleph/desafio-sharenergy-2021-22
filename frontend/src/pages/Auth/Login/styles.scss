@@ -1,0 +1,60 @@
+.login-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    margin: 15px 10px;
+
+    h1 {
+        text-transform: uppercase;
+    }
+
+    button {
+        margin: 0;
+        width: 100%;
+    }
+
+    .form-control {
+        background-color:  #FFF !important;
+        &:focus {
+            box-shadow: none;
+        }
+        &::placeholder{
+            font-size: 14px;
+            line-height: 19px;
+        }
+    }
+}
+
+.login-form {
+    margin-top: 15px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.login-submit {
+    width: 100%;
+}
+
+.login-link-recover {
+    color: #407BFF;
+    display: block;
+    width: 55%;
+}
+
+.login-link-register{
+    margin: 20px 0;
+    font-weight: bold;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #407BFF;
+}
+
+.not-registered {
+    font-weight: bold;
+    text-align: center;
+    color: #9E9E9E;
+}
+  

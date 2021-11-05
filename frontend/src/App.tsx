@@ -4,7 +4,9 @@ import 'assets/styles/custom.scss';
 
 function App() {
   return (
-    <Routes />
+    <>
+      <Routes />
+    </>
   );
 }
 

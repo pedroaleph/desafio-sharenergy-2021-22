@@ -32,6 +32,25 @@ ul {
     margin: 20px 40px;
 }
 
+.input-base {
+    border: 1px solid #E1E1E1;
+    box-sizing: border-box;
+    border-radius: 10px;
+    color: #263238;
+    height: 40px;
+    width: 100%;
+    margin-bottom: 8px;
+    background-color: #FFF;
+  
+    &::placeholder{
+      color: #9E9E9E;
+    }
+}
+
+.margin-bottom-25 {
+    margin-bottom: 25px;
+}
+
 @media (max-width: 768px) {
     .card-base {
         margin: 20px 15px;

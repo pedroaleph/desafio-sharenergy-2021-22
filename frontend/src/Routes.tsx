@@ -1,4 +1,5 @@
 import NavBar from "components/NavBar";
+import Auth from "pages/Auth";
 import ChartsPage from "pages/ChartsPage";
 import ClientsPage from "pages/ClientsPage";
 import HomePage from "pages/HomePage";
@@ -17,6 +18,9 @@ const Routes = () => {
                 </Route>
                 <Route path='/clients' exact>
                     <ClientsPage />
+                </Route>
+                <Route path='/auth'>
+                    <Auth />
                 </Route>
             </Switch>
         </BrowserRouter>
