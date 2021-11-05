@@ -7,6 +7,8 @@ services:
       - 27017:27017
     volumes:
       - db:/data/db
+    networks:
+      - mongodb_network
     restart: unless-stopped
   
   backend:
@@ -19,21 +21,30 @@ services:
       - /backend/node_modules
     depends_on:
       - mongodb
+    networks:
+      - mongodb_network
+      - frontend_network
+    restart: unless-stopped
+  
+  frontend:
+    build: frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - /frontend/node_modules
+    depends_on:
+      - backend
+    networks:
+      - frontend_network
     restart: unless-stopped
     stdin_open: true
     tty: true
-  
-  # frontend:
-  #   build: frontend
-  #   ports:
-  #     - 3000:3000
-  #   volumes:
-  #     - /frontend/node_modules
-  #   depends_on:
-  #     - backend
-  #   restart: unless-stopped
-  #   stdin_open: true
-  #   tty: true
 
 volumes:
   db:
+
+networks:
+  mongodb_network:
+    driver: bridge
+
+  frontend_network:

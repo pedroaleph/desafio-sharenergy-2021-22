@@ -28,12 +28,14 @@ const ClientForm = () => {
     const history = useHistory();
 
     const getClient = useCallback(() => {
+        
         request.get(`/clients/${id}`, { headers })
-            .then((res) => {
+            .then(res  => {
                 setValue('emailCliente', res.data.emailCliente);
                 setValue('nomeCliente', res.data.nomeCliente);
             })
             .catch(err => {
+                console.log(err.response);
                 history.replace('/clients');
                 alert('Falha ao carregar dados do cliente');
             });
@@ -55,7 +57,7 @@ const ClientForm = () => {
                 alert('Cliente salvo com sucesso!');
             })
             .catch(err => {
-                console.log(err);
+                console.log(err.response);
                 alert('Erro ao salvar cliente!');
             });
     }

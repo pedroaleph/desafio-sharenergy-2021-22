@@ -18,7 +18,7 @@ const Login = () => {
     const history = useHistory();
 
     const onSubmit = (data: FormState) => {
-      console.log(data);
+      //console.log(data);
       request.post('/auth/login', data)
           .then(res => {
             //console.log(res);
@@ -27,7 +27,7 @@ const Login = () => {
             alert('Sessão iniciada com sucesso!');
           })
           .catch((err) => {
-            console.log(err);
+            console.log(err.response);
             setHasError(true);
           })
       }

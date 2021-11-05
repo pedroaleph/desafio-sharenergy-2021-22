@@ -11,7 +11,7 @@ const ClientCard = ({ client, onRemove }: Props) => {
     const isPlantExists = usinas && usinas.length;
     const history = useHistory();
 
-    console.log(client, isPlantExists);
+    //console.log(client, isPlantExists);
 
     return (
         <div className='client-card-container card-base'>
