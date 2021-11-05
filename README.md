@@ -4,24 +4,29 @@ Este repositório se destina a entrega do desafio referente ao processo seletivo
 
 A aplicação deste desafio consiste em:
   - Exibição de dados de um dia em uma usina em um gráfio de linha:
-  -- O gráfico é plotado em uma váriável de interesse em função do tempo
-  -- A várivel pode ser alterada por opção do usuáio com input radio
+  - O gráfico é plotado em uma váriável de interesse em função do tempo
+  - A várivel pode ser alterada por opção do usuáio com input radio
 
   - Exibição de estimativas de retorno financeiro dos clientes associados a usina:
-  -- Um gráfico de pizza onde se  tem a porcentagem de partipação de cada cliente
-  -- Energia gerada, retorno financeiro total e a parcela de cada cliente
+  - Um gráfico de pizza onde se  tem a porcentagem de partipação de cada cliente
+  - Energia gerada, retorno financeiro total e a parcela de cada cliente
 
   - CRUD para cliente, com recurso básicos de criar, ler, e editar e apagar
-  -- É nessário que o usúario esteja autenticada, para tanto uma conta para teste é fonercida:
-  --- email: desafio@sharenergy.com
-  --- senha: 123456
+  - É nessário que o usúario esteja autenticado, para tanto uma conta para teste é fonercida:
+  - email: desafio@sharenergy.com
+  - senha: 123456
 
 Esta Aplicação adicionalmente recurso de:
   - Paginação de clientes
-  - Filtro de pesquisa por nome
-  - Responsividade para dispositivos móveis e tables
+  - Filtragem de clientes por nome
+  - Responsividade para dispositivos móveis e tablets
 
 ## Layout
+![Layout 1](https://github.com/pedroaleph/desafio-sharenergy-2021-22/blob/Pedro_Aleph_Gomes_de_Souza_Vasconcelos/assets/Layout1.png)
+![Layout 2](https://github.com/pedroaleph/desafio-sharenergy-2021-22/blob/Pedro_Aleph_Gomes_de_Souza_Vasconcelos/assets/Layout2.png)
+![Layout 3](https://github.com/pedroaleph/desafio-sharenergy-2021-22/blob/Pedro_Aleph_Gomes_de_Souza_Vasconcelos/assets/Layout3.png)
+![Layout 4](https://github.com/pedroaleph/desafio-sharenergy-2021-22/blob/Pedro_Aleph_Gomes_de_Souza_Vasconcelos/assets/Layout4.png)
+![Layout 5](https://github.com/pedroaleph/desafio-sharenergy-2021-22/blob/Pedro_Aleph_Gomes_de_Souza_Vasconcelos/assets/Layout5.png) ![Layout 6](https://github.com/pedroaleph/desafio-sharenergy-2021-22/blob/Pedro_Aleph_Gomes_de_Souza_Vasconcelos/assets/Layout6.png)
 
 
 # Tecnologias utilizadas
@@ -34,7 +39,7 @@ Esta Aplicação adicionalmente recurso de:
 - Mongoose
 - Mongoose-sequence
 - Jsonwebtoken
-- Bcrypty
+- Bcrypt
 - Cors
 ## Front end
 - TypeScript
@@ -102,4 +107,4 @@ yarn start
 
 # Autor
 
-Pedro Aleph G. de S. Vasconcelos
+Pedro Aleph Gomes de Souza Vasconcelos
