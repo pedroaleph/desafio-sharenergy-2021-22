@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  mongodb: 
+    image: mongo:5.0.2
+    ports: 
+      - 27017:27017
+    volumes:
+      - db:/data/db
+    restart: unless-stopped
+  
+  backend:
+    build: backend
+    ports:
+      - 5000:5000
+    environment:
+      - DATABASE_URL=mongodb://mongodb:27017/desafioSHARENERGY
+    volumes:
+      - /backend/node_modules
+    depends_on:
+      - mongodb
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+  
+  frontend:
+    build: frontend
+    ports:
+      - 3000:3000
+    volumes:
+      - /frontend/node_modules
+    depends_on:
+      - backend
+    restart: unless-stopped
+    stdin_open: true
+    tty: true
+
+volumes:
+  db:

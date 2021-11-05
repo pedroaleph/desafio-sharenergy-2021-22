@@ -39,12 +39,12 @@ db.once("open", async (callback) => {
     const clients = require('./resources/dadosClientes.json');
     await createMany(clients);
   }
-  console.log(`Connected to ${MONGODB_URL} `);
+  console.log('Successfully connected to the database!');
 });
 
-// db.on("close", () => {
-//     console.log('Connection has been successfully closed, see you again soon!');
-// });
+db.on("close", () => {
+    console.log('Connection has been successfully closed, see you again soon!');
+});
   
 
 
