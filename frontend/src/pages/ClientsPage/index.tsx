@@ -33,7 +33,7 @@ const ClientsPage = () => {
     const onRemove = (id: number) => {
         const confirm = window.confirm('Deseja realmente excluir este cliente?');
 
-        if(confirm) {
+        if (confirm) {
             const headers = {
                 Authorization: getSessionData()
             }
@@ -41,6 +41,7 @@ const ClientsPage = () => {
             request.delete(`/clients/${id}`, { headers })
                 .then(() => {
                     alert('Cliente excluido com sucesso!');
+                    getClients();
                 })
                 .catch((err) => {
                     console.log(err.response);
@@ -51,19 +52,23 @@ const ClientsPage = () => {
 
 
     useEffect(() => {
-        if(!isAuthenticated())
+        if (!isAuthenticated())
             history.replace('/auth/login');
+
         getClients();
     }, [history, getClients]);
 
     return (
         <div className='clients-page-container'>
             <div className='client-search-add-container card-base'>
-                <ButtonIcon text='adicionar'/>
-                <SearchInput OnChangeText={text => setClientName(text)}/>
+                <ButtonIcon
+                    text='adicionar'
+                    onClickButton={() => history.push('/clients/create')}
+                />
+                <SearchInput OnChangeText={text => setClientName(text)} />
             </div>
             <div className='clients-page-content'>
-                { clientsResponse && clientsResponse.content.map(
+                {clientsResponse && clientsResponse.content.map(
                     client => (
                         <ClientCard
                             key={client._id}
@@ -71,7 +76,7 @@ const ClientsPage = () => {
                             onRemove={onRemove}
                         />
                     )
-                ) }
+                )}
             </div>
             <div className='clients-pagination-container card-base'>
                 {

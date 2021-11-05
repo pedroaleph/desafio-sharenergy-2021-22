@@ -1,3 +1,4 @@
+import { useHistory } from 'react-router-dom';
 import { ClientData } from 'types/Clients';
 
 type Props = {
@@ -8,6 +9,9 @@ type Props = {
 const ClientCard = ({ client, onRemove }: Props) => {
     const { _id, emailCliente, nomeCliente, usinas } = client;
     const isPlantExists = usinas && usinas.length;
+    const history = useHistory();
+
+    console.log(client, isPlantExists);
 
     return (
         <div className='client-card-container card-base'>
@@ -26,13 +30,14 @@ const ClientCard = ({ client, onRemove }: Props) => {
                 <button
                     type='button'
                     className='btn btn-outline-info'
+                    onClick={() => history.push(`/clients/${_id}`)}
                 >
                     EDITAR
                </button>
                <button
                     type='button'
                     className='btn btn-outline-danger'
-                    disabled={ isPlantExists ? false : true }
+                    disabled={ isPlantExists ? true : false }
                     onClick={() => onRemove(_id as number)}
                 >
                     EXCLUIR

@@ -2,6 +2,7 @@ import NavBar from "components/NavBar";
 import Auth from "pages/Auth";
 import ChartsPage from "pages/ChartsPage";
 import ClientsPage from "pages/ClientsPage";
+import ClientForm from "pages/ClientsPage/ClientForm";
 import HomePage from "pages/HomePage";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 
@@ -20,7 +21,7 @@ const Routes = () => {
                     <ClientsPage />
                 </Route>
                 <Route path='/clients/:id'>
-                    
+                    <ClientForm />
                 </Route>
                 <Route path='/auth'>
                     <Auth />

@@ -1,0 +1,43 @@
+.client-form-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.client-form-card {
+    width: 70%;
+    height: 60vh;
+}
+
+.client-form-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin: 15px 40px;
+
+    h4 {
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-bottom: 30px;
+    }
+
+    .form-control {
+        background-color: #FFF !important;
+    }
+}
+.client-form-actions {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: row-reverse;
+
+    button {
+        width: 150px;
+        height: 40px;
+        margin: 10px;
+        font-weight: bold;
+        
+        &:hover {
+            color: #FFF;
+        }
+    }
+}

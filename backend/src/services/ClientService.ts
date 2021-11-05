@@ -1,15 +1,15 @@
 import { ClientType } from "models/Client";
 const ClientModel = require('../models/Client');
 
-const clientDTO = (client: ClientType) => (
-    {
-        _id: client._id,
-        numeroCliente: client.numeroCliente,
-        nomeCliente: client.nomeCliente,
-        emailCliente: client.emailCliente,
-        imagemCliente: client.imagemCliente,
-    }
-)
+// const clientDTO = (client: ClientType) => (
+//     {
+//         _id: client._id,
+//         numeroCliente: client.numeroCliente,
+//         nomeCliente: client.nomeCliente,
+//         emailCliente: client.emailCliente,
+//         imagemCliente: client.imagemCliente,
+//     }
+// )
 
 export const createMany = async (clients: ClientType[]) => {
     try {        
@@ -26,7 +26,7 @@ export const createMany = async (clients: ClientType[]) => {
     }
 };
 
-export const findPaged = async (name: string, size: number, page: number) => {
+export const findPaged = async (name: string, size: number, page: number, order: string) => {
     try {
         const search = { nomeCliente: { $regex: name, $options:'i' } };
 
@@ -37,14 +37,11 @@ export const findPaged = async (name: string, size: number, page: number) => {
         const totalPages = Math.ceil((size === 0) ? 1 : total / size);
     
         const skip = page * size;
-
         
         const data = await ClientModel.find(search).sort({ _id: -1 }).limit(size).skip(skip);
 
-        const dto = data.map(clientDTO);
-
         const dataPaged = {
-            content: dto,
+            content: data,
             size: size,
             page: page,
             totalPages: totalPages,
