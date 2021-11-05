@@ -39,7 +39,7 @@ export const findPaged = async (name: string, size: number, page: number) => {
         const skip = page * size;
 
         
-        const data = await ClientModel.find(search).limit(size).skip(skip);
+        const data = await ClientModel.find(search).sort({ _id: -1 }).limit(size).skip(skip);
 
         const dto = data.map(clientDTO);
 

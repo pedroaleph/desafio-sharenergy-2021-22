@@ -1,14 +1,16 @@
 import './styles.scss';
 
 type Props = {
-    text: string
+    text: string,
+    onClickButton?: () => void
 }
 
-const ButtonIcon = ({ text }: Props) => {
+const ButtonIcon = ({ text, onClickButton }: Props) => {
     return (
         
         <button
             className="btn btn-primary button-icon-container"
+            onClick={onClickButton}
         >
             <h5>
                 {text}

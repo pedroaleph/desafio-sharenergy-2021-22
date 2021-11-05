@@ -1,0 +1,16 @@
+.search-input-container {
+    display: flex;
+    align-items: center;
+    width: 70%;
+    
+    .form-control {
+        height: 40px;
+        margin-right: 10px;
+
+        background-color: #FFF !important;
+    }
+
+    svg {
+        cursor: pointer;
+    }
+}

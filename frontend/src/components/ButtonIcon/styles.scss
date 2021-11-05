@@ -6,6 +6,7 @@
     text-align: center;
     margin: 10px;
     padding: 12px !important;
+    box-shadow: none;
     
     h5 {
         text-transform: uppercase;
@@ -16,9 +17,5 @@
 
     &:hover {
         background-color: #3E9696 !important;
-    }
-
-    &:focus {
-        box-shadow: none;
     }
 }

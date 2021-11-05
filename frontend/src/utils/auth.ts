@@ -32,6 +32,7 @@ export const isTokenValid = () => {
     const expirationTime = Date.now() <= exp * 1000;
     if (!expirationTime) {
         alert("Sua sessão foi expirada, logue novamente para continuar");
+        logout();
       }
     return expirationTime;
   }
