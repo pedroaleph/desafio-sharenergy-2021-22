@@ -6,7 +6,6 @@
 
 .client-search-add-container {
     width: 60%;
-    height: 70px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -22,8 +21,8 @@
 }
 
 .clients-page-content {
-    width: 50%;
-    height: 59vh;
+    width: 60%;
+    min-height: 59vh;
 }
 
 .client-card-container {
@@ -61,4 +60,42 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    margin-bottom: 1px !important;
+}
+
+@media(max-width: 768px) {
+    .client-search-add-container,
+        .clients-page-content,
+        .clients-pagination-container {
+        width: 90%;
+    }
+}
+
+@media(max-width: 576px) {
+    .client-search-add-container {
+        flex-direction: column-reverse;
+
+        button {
+            margin-top: 15px !important;
+            width: 100%;
+        }
+    }
+    .client-card-container{
+        flex-direction: column;
+        height: 100%;
+
+        .client-card-info {
+            width: 90%;
+            margin-bottom: 15px;
+        }
+
+        .client-card-btns {
+            flex-direction: column;
+            width: 100%;
+        }
+    }
+
+    .clients-page-content {
+        height: 100%;
+    }
 }

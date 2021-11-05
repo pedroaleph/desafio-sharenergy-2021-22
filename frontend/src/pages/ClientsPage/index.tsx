@@ -54,8 +54,7 @@ const ClientsPage = () => {
     useEffect(() => {
         if (!isAuthenticated())
             history.replace('/auth/login');
-
-        getClients();
+        else getClients();
     }, [history, getClients]);
 
     return (

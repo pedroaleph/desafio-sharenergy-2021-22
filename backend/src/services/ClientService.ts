@@ -26,7 +26,7 @@ export const createMany = async (clients: ClientType[]) => {
     }
 };
 
-export const findPaged = async (name: string, size: number, page: number, order: string) => {
+export const findPaged = async (name: string, size: number, page: number) => {
     try {
         const search = { nomeCliente: { $regex: name, $options:'i' } };
 

@@ -14,3 +14,9 @@
         cursor: pointer;
     }
 }
+
+@media(max-width: 576px) {
+    .search-input-container {
+        width: 100%;
+    }
+}

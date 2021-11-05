@@ -41,3 +41,27 @@
         }
     }
 }
+
+@media (max-width: 768px) {
+    .client-form-card {
+        width: 90%;
+        height: 70vh;
+    }
+
+    .client-form-actions {
+        align-self: center;
+        flex-direction: row;
+    }
+}
+
+@media (max-width: 576px) {
+
+    .client-form-actions {
+        width: 100%;
+        flex-direction: column;
+
+        button {
+            width: 100%;
+        }
+    }
+}
