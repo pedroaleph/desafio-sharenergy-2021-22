@@ -30,7 +30,7 @@ Esta Aplicação adicionalmente recurso de:
 
 
 ## Aprensetação
-![Video 1](https://youtu.be/dhbMzwRZKD8)
+[Video 1](https://youtu.be/dhbMzwRZKD8)
 
 
 # Tecnologias utilizadas
